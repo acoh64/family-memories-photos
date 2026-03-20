@@ -22,5 +22,17 @@
     "date": "2024-07-04",
     "photos": ["fireworks-hyannis.jpg"],
     "tags": ["fourth-of-july", "fireworks", "hyannis", "summer"]
+  },
+  {
+    "id": "alex-s-phd-graduation",
+    "title": "Alex's PhD Graduation",
+    "description": "Alex defended his PhD from MIT Chemical Engineering and Computational Science and Engineering",
+    "date": "2025-12-18",
+    "photos": [
+      "alex_phd.jpg"
+    ],
+    "tags": [
+      "school"
+    ]
   }
 ]
