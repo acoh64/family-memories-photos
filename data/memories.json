@@ -1,0 +1,26 @@
+[
+  {
+    "id": "summer-2024-sandy-neck",
+    "title": "Summer Day at Sandy Neck Beach",
+    "description": "The whole family spent a perfect July afternoon at Sandy Neck Beach. The kids built an enormous sandcastle while the adults set up the umbrella and unpacked the cooler. The tide was gentle and the water was just warm enough for swimming. We watched the sunset paint the dunes in gold before packing up and heading to the Lobster Pot for dinner.",
+    "date": "2024-07-15",
+    "photos": ["sandy-neck-summer.jpg"],
+    "tags": ["beach", "summer", "sandy-neck"]
+  },
+  {
+    "id": "thanksgiving-2023",
+    "title": "Thanksgiving on the Cape",
+    "description": "Our annual Thanksgiving gathering at Mom and Dad's place. The house smelled incredible all morning — Dad's famous herb-roasted turkey and Mom's cranberry sauce made from scratch. After dinner we bundled up and took a walk along the Boardwalk in Sandwich. The kids ran ahead while the rest of us strolled and caught up. A perfect Cohen Thanksgiving.",
+    "date": "2023-11-23",
+    "photos": ["thanksgiving-2023.jpg"],
+    "tags": ["thanksgiving", "family", "traditions"]
+  },
+  {
+    "id": "fourth-of-july-2024",
+    "title": "Fourth of July Fireworks in Hyannis",
+    "description": "We grabbed our lawn chairs and blankets and staked out a spot at Veteran's Park early. The kids waved sparklers while we waited for the show. When the fireworks finally went off over the harbor, the reflections on the water made everything twice as magical. Another unforgettable Fourth on the Cape.",
+    "date": "2024-07-04",
+    "photos": ["fireworks-hyannis.jpg"],
+    "tags": ["fourth-of-july", "fireworks", "hyannis", "summer"]
+  }
+]

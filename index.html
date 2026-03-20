@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cape Cod Cohen — Family Memories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <svg class="wave-icon" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0 10 Q5 0 10 10 Q15 20 20 10 Q25 0 30 10 Q35 20 40 10" stroke="currentColor" stroke-width="2.5" fill="none"/>
+        </svg>
+        <h1 class="site-title"><a href="index.html">Cape Cod Cohen</a></h1>
+        <p class="site-subtitle">Family Memories</p>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link active">Gallery</a>
+        <a href="add.html" class="nav-link">Add Memory</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls">
+      <div class="controls-inner">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="searchInput" placeholder="Search memories..." aria-label="Search memories">
+        </div>
+        <div class="control-group">
+          <div class="view-toggle" role="radiogroup" aria-label="View mode">
+            <button class="view-btn active" data-view="grid" aria-pressed="true" title="Grid view">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            </button>
+            <button class="view-btn" data-view="timeline" aria-pressed="false" title="Timeline view">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/><circle cx="12" cy="6" r="2" fill="currentColor"/><circle cx="12" cy="12" r="2" fill="currentColor"/><circle cx="12" cy="18" r="2" fill="currentColor"/><line x1="14" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="10" y2="12"/><line x1="14" y1="18" x2="20" y2="18"/></svg>
+            </button>
+          </div>
+          <select id="sortSelect" aria-label="Sort order">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+          </select>
+        </div>
+      </div>
+      <div class="tags-bar" id="tagsBar"></div>
+    </section>
+
+    <section id="gallery" class="gallery grid-view"></section>
+
+    <div class="empty-state" id="emptyState" hidden>
+      <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="40" cy="40" r="36"/><path d="M28 52 Q40 40 52 52"/><circle cx="30" cy="32" r="3" fill="currentColor"/><circle cx="50" cy="32" r="3" fill="currentColor"/></svg>
+      <p>No memories match your search.</p>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox" hidden aria-modal="true" role="dialog">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <div class="lightbox-content">
+      <div class="lightbox-photo-wrap">
+        <button class="lightbox-arrow lightbox-prev" aria-label="Previous photo">&#8249;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <button class="lightbox-arrow lightbox-next" aria-label="Next photo">&#8250;</button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+      </div>
+      <div class="lightbox-details">
+        <h2 class="lightbox-title" id="lightboxTitle"></h2>
+        <time class="lightbox-date" id="lightboxDate"></time>
+        <p class="lightbox-desc" id="lightboxDesc"></p>
+        <div class="lightbox-tags" id="lightboxTags"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; The Cohen Family &middot; Cape Cod</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

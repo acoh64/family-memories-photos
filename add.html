@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Memory — Cape Cod Cohen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <svg class="wave-icon" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0 10 Q5 0 10 10 Q15 20 20 10 Q25 0 30 10 Q35 20 40 10" stroke="currentColor" stroke-width="2.5" fill="none"/>
+        </svg>
+        <h1 class="site-title"><a href="index.html">Cape Cod Cohen</a></h1>
+        <p class="site-subtitle">Family Memories</p>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Gallery</a>
+        <a href="add.html" class="nav-link active">Add Memory</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="add-page">
+    <div class="add-layout">
+      <section class="add-form-section">
+        <h2>Add a New Memory</h2>
+        <p class="form-intro">Fill out the form below to generate a JSON entry. Then copy it and paste it into <code>data/memories.json</code>, and add your photo(s) to the <code>photos/</code> folder.</p>
+
+        <form id="memoryForm" novalidate>
+          <div class="field">
+            <label for="memTitle">Title <span class="required">*</span></label>
+            <input type="text" id="memTitle" placeholder="e.g. Summer Day at Sandy Neck Beach" required>
+          </div>
+
+          <div class="field">
+            <label for="memDate">Date <span class="required">*</span></label>
+            <input type="date" id="memDate" required>
+          </div>
+
+          <div class="field">
+            <label for="memDescription">Description</label>
+            <textarea id="memDescription" rows="4" placeholder="Tell the story of this memory..."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="memPhotos">Photo Filename(s)</label>
+            <input type="text" id="memPhotos" placeholder="e.g. beach-day.jpg, sunset.jpg">
+            <span class="field-hint">Comma-separated filenames. Add these files to the <code>photos/</code> folder.</span>
+          </div>
+
+          <div class="field">
+            <label for="memTags">Tags</label>
+            <input type="text" id="memTags" placeholder="e.g. beach, summer, sandy-neck">
+            <span class="field-hint">Comma-separated tags for filtering.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Generate JSON</button>
+        </form>
+      </section>
+
+      <section class="preview-section">
+        <h3>Live Preview</h3>
+        <div class="preview-card" id="previewCard">
+          <div class="card-photo placeholder-photo"></div>
+          <div class="card-body">
+            <h3 class="card-title" id="previewTitle">Your Memory Title</h3>
+            <time class="card-date" id="previewDate"></time>
+            <p class="card-desc" id="previewDesc">Your memory description will appear here...</p>
+            <div class="card-tags" id="previewTags"></div>
+          </div>
+        </div>
+
+        <div class="json-output" id="jsonOutput" hidden>
+          <h3>Generated JSON Entry</h3>
+          <pre><code id="jsonCode"></code></pre>
+          <button type="button" class="btn btn-copy" id="copyBtn">Copy to Clipboard</button>
+          <div class="copy-toast" id="copyToast" hidden>Copied!</div>
+        </div>
+
+        <div class="instructions-box">
+          <h3>How to Add Your Memory</h3>
+          <ol>
+            <li>Fill out the form and click <strong>Generate JSON</strong>.</li>
+            <li>Copy the generated JSON entry.</li>
+            <li>Open <code>data/memories.json</code> in your editor.</li>
+            <li>Paste the entry into the array (add a comma after the previous entry).</li>
+            <li>Add your photo file(s) to the <code>photos/</code> folder.</li>
+            <li>Commit and push your changes.</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; The Cohen Family &middot; Cape Cod</p>
+  </footer>
+
+  <script src="js/add.js"></script>
+</body>
+</html>

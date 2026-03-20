@@ -1,0 +1,907 @@
+/* ==========================================================================
+   Cape Cod Cohen — Family Memories
+   Coastal theme: sandy beige, ocean blues, white surfaces
+   ========================================================================== */
+
+:root {
+  --sand-50: #fdf8f0;
+  --sand-100: #f5ead6;
+  --sand-200: #e8d5b3;
+  --sand-300: #d4b98a;
+  --ocean-400: #5b9ec4;
+  --ocean-500: #3a7fb8;
+  --ocean-600: #2b6a9e;
+  --ocean-700: #1e4f78;
+  --ocean-800: #153b5b;
+  --driftwood: #8b7355;
+  --driftwood-light: #a8926e;
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.15);
+  --transition: 0.25s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--gray-700);
+  background: var(--sand-50);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: var(--ocean-500);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--ocean-700);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--sand-200);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.wave-icon {
+  width: 36px;
+  height: 18px;
+  color: var(--ocean-500);
+  flex-shrink: 0;
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ocean-800);
+  letter-spacing: -0.01em;
+}
+.site-title a {
+  color: inherit;
+}
+.site-title a:hover {
+  color: var(--ocean-600);
+}
+
+.site-subtitle {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--driftwood);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.main-nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  transition: all var(--transition);
+}
+.nav-link:hover {
+  background: var(--sand-100);
+  color: var(--gray-800);
+}
+.nav-link.active {
+  background: var(--ocean-500);
+  color: var(--white);
+}
+.nav-link.active:hover {
+  background: var(--ocean-600);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   Controls (search, view toggle, sort, tags)
+   ========================================================================== */
+
+.controls {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.controls-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 420px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--gray-400);
+  pointer-events: none;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.65rem 0.75rem 0.65rem 2.5rem;
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  background: var(--white);
+  color: var(--gray-700);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.search-box input:focus {
+  outline: none;
+  border-color: var(--ocean-400);
+  box-shadow: 0 0 0 3px rgba(59, 127, 184, 0.15);
+}
+.search-box input::placeholder {
+  color: var(--gray-400);
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.view-toggle {
+  display: flex;
+  background: var(--white);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.view-btn {
+  padding: 0.5rem 0.65rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--gray-400);
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.view-btn svg {
+  width: 18px;
+  height: 18px;
+}
+.view-btn:hover {
+  color: var(--gray-600);
+  background: var(--sand-50);
+}
+.view-btn.active {
+  background: var(--ocean-500);
+  color: var(--white);
+}
+
+#sortSelect {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  background: var(--white);
+  color: var(--gray-600);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+#sortSelect:focus {
+  outline: none;
+  border-color: var(--ocean-400);
+}
+
+.tags-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tag-chip {
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border: 1px solid var(--sand-200);
+  background: var(--white);
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.tag-chip:hover {
+  border-color: var(--ocean-400);
+  color: var(--ocean-600);
+}
+.tag-chip.active {
+  background: var(--ocean-500);
+  border-color: var(--ocean-500);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   Gallery — Grid View
+   ========================================================================== */
+
+.gallery {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.gallery.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.memory-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  opacity: 0;
+  transform: translateY(24px);
+}
+.memory-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow var(--transition);
+}
+.memory-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.memory-card.visible:hover {
+  transform: translateY(-4px);
+}
+
+.card-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: var(--sand-100);
+}
+
+.placeholder-photo {
+  background: linear-gradient(135deg, var(--sand-100) 0%, var(--ocean-400) 50%, var(--sand-200) 100%);
+  opacity: 0.6;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.card-date {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--driftwood);
+  margin-bottom: 0.6rem;
+}
+
+.card-desc {
+  font-size: 0.88rem;
+  color: var(--gray-500);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+
+.card-tag {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 100px;
+  background: var(--sand-100);
+  color: var(--driftwood);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Gallery — Timeline View
+   ========================================================================== */
+
+.gallery.timeline-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.gallery.timeline-view::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--sand-200);
+  transform: translateX(-50%);
+}
+
+.gallery.timeline-view .memory-card {
+  position: relative;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}
+
+.gallery.timeline-view .memory-card::before {
+  content: '';
+  position: absolute;
+  left: -2.25rem;
+  top: 1.5rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ocean-500);
+  border: 3px solid var(--sand-50);
+  z-index: 1;
+  transform: translateX(-50%);
+}
+
+.gallery.timeline-view .card-photo {
+  height: 180px;
+}
+
+/* ==========================================================================
+   Empty State
+   ========================================================================== */
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  color: var(--gray-400);
+}
+.empty-state svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+}
+.empty-state p {
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   Lightbox
+   ========================================================================== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity var(--transition);
+  z-index: 10;
+}
+.lightbox-close:hover {
+  opacity: 1;
+}
+
+.lightbox-content {
+  display: flex;
+  gap: 2rem;
+  max-width: 1100px;
+  width: 100%;
+  max-height: 85vh;
+  align-items: flex-start;
+}
+
+.lightbox-photo-wrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 75vh;
+  border-radius: var(--radius-sm);
+  object-fit: contain;
+  background: var(--gray-800);
+}
+
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: var(--white);
+  font-size: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-arrow:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.lightbox-prev { left: 0.5rem; }
+.lightbox-next { right: 0.5rem; }
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.5);
+  color: var(--white);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+}
+
+.lightbox-details {
+  width: 320px;
+  flex-shrink: 0;
+  color: var(--white);
+  overflow-y: auto;
+  max-height: 75vh;
+}
+
+.lightbox-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.lightbox-date {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--sand-200);
+  margin-bottom: 1rem;
+}
+
+.lightbox-desc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--gray-300);
+}
+
+.lightbox-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.lightbox-tags .card-tag {
+  background: rgba(255,255,255,0.12);
+  color: var(--sand-200);
+}
+
+/* Placeholder for lightbox when no photo */
+.lightbox-img.placeholder {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, var(--sand-200) 0%, var(--ocean-400) 50%, var(--sand-100) 100%);
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   Add Memory Page
+   ========================================================================== */
+
+.add-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.add-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.add-form-section h2,
+.preview-section h3 {
+  font-family: var(--font-heading);
+  color: var(--gray-800);
+  margin-bottom: 0.5rem;
+}
+
+.add-form-section h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.form-intro {
+  font-size: 0.88rem;
+  color: var(--gray-500);
+  margin-bottom: 1.5rem;
+  line-height: 1.55;
+}
+.form-intro code {
+  background: var(--sand-100);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  color: var(--ocean-700);
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+.field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.35rem;
+}
+
+.required {
+  color: #e74c3c;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  background: var(--white);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--ocean-400);
+  box-shadow: 0 0 0 3px rgba(59, 127, 184, 0.15);
+}
+.field textarea {
+  resize: vertical;
+}
+
+.field-hint {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--gray-400);
+  margin-top: 0.3rem;
+}
+.field-hint code {
+  background: var(--sand-100);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-primary {
+  background: var(--ocean-500);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--ocean-600);
+}
+
+.btn-copy {
+  background: var(--sand-100);
+  color: var(--gray-700);
+  border: 1px solid var(--sand-200);
+  margin-top: 0.75rem;
+}
+.btn-copy:hover {
+  background: var(--sand-200);
+}
+
+.preview-section {
+  position: sticky;
+  top: 6rem;
+}
+
+.preview-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+}
+
+.preview-card .card-photo {
+  height: 180px;
+}
+
+.json-output {
+  background: var(--gray-800);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.json-output h3 {
+  color: var(--sand-200);
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.json-output pre {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.json-output code {
+  color: var(--sand-100);
+}
+
+.copy-toast {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--ocean-500);
+  color: var(--white);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  animation: fadeInOut 1.5s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: translateY(4px); }
+  15%  { opacity: 1; transform: translateY(0); }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.instructions-box {
+  background: var(--white);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+}
+
+.instructions-box h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.instructions-box ol {
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+.instructions-box code {
+  background: var(--sand-100);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.78rem;
+  color: var(--ocean-700);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  border-top: 1px solid var(--sand-200);
+  margin-top: 2rem;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .lightbox-content {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .lightbox-details {
+    width: 100%;
+    max-height: none;
+  }
+  .add-layout {
+    grid-template-columns: 1fr;
+  }
+  .preview-section {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .brand {
+    gap: 0.5rem;
+  }
+  .site-title {
+    font-size: 1.25rem;
+  }
+  .controls-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-box {
+    max-width: 100%;
+  }
+  .control-group {
+    margin-left: 0;
+    justify-content: space-between;
+  }
+  .gallery.grid-view {
+    grid-template-columns: 1fr;
+  }
+  .gallery.timeline-view {
+    padding-left: 2.5rem;
+  }
+  .gallery.timeline-view::before {
+    left: 1rem;
+  }
+  .gallery.timeline-view .memory-card::before {
+    left: -2rem;
+  }
+  .lightbox {
+    padding: 1rem;
+  }
+  .lightbox-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+  }
+}
